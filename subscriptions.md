@@ -3,8 +3,23 @@ _Tables_: chatopssubscription, chatopsinstallation, chatopsgithubuser
 # List of commands:
 ## subscribe
 ## unsubscribe
+_command_: `@GitHub unsubscribe owner/repository`, `@GitHub unsubscribe owner`
+
+Users can use these commands to unsubscribe from notifications for a repository or to unsubscribe from notifications for an organization. All signed in users can use this command and if not signed in are prompted to do so.
+
+## Flow:
+When the user submits the unsubscribe command
+
+1) If repository or owner is not passed after the unsubscribe command an error message is shown Eg., `@GitHub unsubscribe`
+2) Then we check if the user is signed-in, if the user is not signed in, user will be prompted with a sign in card.
+3) If the user is signed-in, we are going to check if the GitHub resource (owner or owner/repository) passed in the commnad exist on GitHub.
+   * if a URL is passed in the command, we verify the validity of the URL using the [npm url module](https://www.npmjs.com/package/url). We are not going to process a http: protocol. If the owner or owner/repository could not be extracted from the URL or if the URL passed is not a GitHub URL, an error message will be shown.
+   * if the arguments passed doesn't match the owner or owner/repository criteria, an error message will be shown.
+   
+
+
 ## subscribe list
-_command_: `@github subscribe list`
+_command_: `@GitHub subscribe list`
 
 Lists the repositories and accounts that that user has subscribed to in the given channel.
 Users are not required to connect their GitHub account on Teams to view the list of subscriptions.
