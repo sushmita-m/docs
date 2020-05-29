@@ -4,20 +4,21 @@ _Tables_: chatopssubscription, chatopsinstallation, chatopsgithubuser
 ## subscribe
 _command_: `@GitHub subscribe owner/repository`, `@GitHub subscribe owner`
 
-User can use these commands to subscribe to notifications for a repository or subscirbe for all repositories for this owner that our Teams app on GitHub can access. This command subscribes to pull requests and issues by default. All signed in users can use this command and if not signed in are prompted to do so. 
+User can use these commands to subscribe to notifications for a repository or subscribe to all repositories for this owner that our Teams app on GitHub can access. This command subscribes to pull requests and issues by default. All signed in users can use this command and if not signed in, are prompted to do so. 
 
 ## Flow:
 When the user submits the subscribe command
 
 1) If a repository or owner is not passed after the subscribe command, an error message is shown Eg., `@GitHub subscribe`
 2) Then we check if the user is signed-in, if the user is not signed in, user will be prompted with a sign in card.
-3) If the user is signed-in, we are going to check if the GitHub resource (owner or owner/repository) passed in the commnad is in valid format and that if the account exists on GitHub.
+3) If the user is signed-in, we are going to check if the GitHub resource (owner or owner/repository) passed in the command are in a valid format and that if the account exists on GitHub.
    * Firstly, if a URL is passed in the command, we verify the validity of the URL using the [npm url module](https://www.npmjs.com/package/url). If the owner or owner/repository could not be extracted from the URL or if the URL passed is not a GitHub URL, an error message will be shown. We are not going to process a http: protocol, error message will be shown in this case too.
    * if the arguments passed doesn't match the owner or owner/repository format, an error message will be shown.
-   * Once this check is done, we are going to use to check if an user exists [GetByUserName](https://octokit.github.io/rest.js/v17#users-get-by-username)
+   * Once this check is done, we are going to check if the user exist [GetByUserName](https://octokit.github.io/rest.js/v17#users-get-by-username)
    * If the user could not be found, an error message will be shown
-4) Once the validation is done, we are going to use https://github.com/github/slack/blob/master/src/lib/chatops/models/chatops-installations.ts module to see if our Teams app is installed on the GitHub account passed and can access the repository passed (if any). If installation cannot be found or if the app cannot access the repo, install app card is shown to install Teams Github app.Yoou can click on the install app button, to modify the access to your repository as well. We are getting the _chatOpsInstallationId_ from this step.
-    * If you are trying to subscribe to an organization. Some one with owner privileges can only install the app in the organization.
+   * If a repo is also passed, we use [Get](https://octokit.github.io/rest.js/v17#repos-get)
+4) Once the validation is done, we are going to use https://github.com/github/slack/blob/master/src/lib/chatops/models/chatops-installations.ts module to see if our Teams app is installed on the GitHub account passed in the command and can access the repository passed in the command (if any). If an installation cannot be found or if the app cannot access the repo, install app card is shown to install Teams Github app.You can click on the install app button, to modify the access to your repository as well. We are getting the _chatOpsInstallationId_ from this step.
+    * If you are trying to subscribe to an organization. Someone with owner privileges can only install the app in the organization.
 5) If Our Teams app on GitHub is installed and can access the resource passed in the command, we are going to get details about the resource from the resource name using the same same API's as in step 3 eg.,(account id, repository id etc..). This resource id will be treated as _ghArtifactId_ in our **chatopssubscripiton** table
 6) We are going to query **chatopssubscription** table
 
@@ -42,7 +43,8 @@ When the user submits the unsubscribe command
 3) If the user is signed-in, we are going to check if the GitHub resource (owner or owner/repository) passed in the commnad is in valid format and that if the account exists on GitHub.
    * Firstly, if a URL is passed in the command, we verify the validity of the URL using the [npm url module](https://www.npmjs.com/package/url). If the owner or owner/repository could not be extracted from the URL or if the URL passed is not a GitHub URL, an error message will be shown. We are not going to process a http: protocol, error message will be shown in this case too.
    * if the arguments passed doesn't match the owner or owner/repository format, an error message will be shown.
-   * Once this check is done, we are going to use to check if an user exists [GetByUserName](https://octokit.github.io/rest.js/v17#users-get-by-username)
+   * Once this check is done, we are going to use to check if an user exists [GetByUserName](https://octokit.github.io/rest.js/v17#users-get-by-username)   
+   * If a repo is also passed, we use [Get](https://octokit.github.io/rest.js/v17#repos-get)
    * If the user or the repository could not be found, an error message will be shown.
 4) Once the validation is done, we are going to use the API's from above step to get the resource id form GitHub.
 5) Then we query the **chatopssubscription** table to see if an entry exists for our resource
