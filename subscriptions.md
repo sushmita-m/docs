@@ -4,7 +4,7 @@ _Tables_: chatopssubscription, chatopsinstallation, chatopsgithubuser
 ## subscribe
 _command_: `@GitHub subscribe owner/repository`, `@GitHub subscribe owner`
 
-User can use these commands to subscribe to notifications for a repository or subscirbe for all repositories for this owner that our Teams app on GitHub can access. This command subscribes to all default features. If the channel is already subscribed the user gets the notification ‘You're already subscribed to org or repo name”. All signed in users can use this command and if not signed in are prompted to do so. 
+User can use these commands to subscribe to notifications for a repository or subscirbe for all repositories for this owner that our Teams app on GitHub can access. This command subscribes to pull requests and issues by default. All signed in users can use this command and if not signed in are prompted to do so. 
 
 ## Flow:
 When the user submits the subscribe command
