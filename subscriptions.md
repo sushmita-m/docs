@@ -1,31 +1,33 @@
 ## Database
-_Tables_: chatopssubscriptions, chatopsInstallations  
-# List of workflows:
+_Tables_: chatopssubscription, chatopsinstallation, chatopsgithubuser 
+# List of commands:
 ## subscribe
 ## unsubscribe
 ## subscribe list
-Lists the repositories and accounts that users have subscribed to in the given channel.
-
 _command_: `@github subscribe list`
 
-Users are not required to be signed in to view the list of subscriptions.
+Lists the repositories and accounts that that user has subscribed to in the given channel.
+Users are not required to connect their GitHub account on Teams to view the list of subscriptions.
 
-## Decision:
-***Request:***
-We pass in the _channelId_, _teamId_, _clientAppId_ from the context. We are querying the **chatopssubscriptions** table with these id's. 
+## Flow:
+When the user submits subscribe list command:
 
-***Reply:***
-We get the _ghInstallationId_ from **chatopsinstallations** table (_chatOpsInstallationId_ is a foreign key in the **chatopssubscriptions** table).
+1) All the arguments passed after the word _list_ are ignored.
+2) _chatopssubscription_ and _chatopsinstallation_ tables are queried
 
-We get the _ghArtifactId_, _ghArtifactType_ from the chatopssubscriptions table.
+     <ins>***Request:***</ins>
+     * _channelId_, _teamId_, _clientAppId_
+     
+     <ins>***Reply:***</ins>
+     * _ghInstallationId_ from **chatopsinstallation** table (_chatOpsInstallationId_ is a foreign key in the **chatopssubscription** table).
+     * _ghArtifactId_, _ghArtifactType_ from the chatopssubscriptions table.
+     
+3) Using the _ghInstallationId_ we get the [authentication to the github client as an installation](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation). Then we will get the details about the artifact based on the artifact id, such as repository name, account name, github url etc..
 
-_ghInstallationId_ is used to get authorization to the github client which will be used to make the api calls to get details about the artifact (This will tell us if the app has been uninstalled from the repo/account after the subscription).
+   **The following details are passed to the GithubAPI:**
+   * if _ghArtifactType_ is 'Repo': repository id.
+   * if _ghArtifactType_is 'Account': user id.
+   
+4) If wer are able to retreive the details about the atifact, we further do the authentication as a GitHub app. At this point, we check if our Teams App on GitHub can still access the artifact (to which access has been revoked after a subscription was created in the Teams channel). This will eliminate such repositories from showing up in the list.
 
-**The following details are passed to the GithubApi:**
-   * if _ghArtifactType_ is 'Repo':  _ghArtifactId_ is passed, it contains the repository id.
-   * if _ghArtifactType_is 'Account': _ghArtifactId_ is passed, it contains the user id.
-
-
-if the authorization is successful, using the GithubAPI We will get the details about each subscription.
-
-Results are displayed as hyperlinks. Text will be the full_name of the repository or the github account name. The hyperlinks will redirect to the repository or the github user account.
+5) Results are displayed as hyperlinks. Text will be the full_name of the repository or the github account name. The hyperlinks will redirect to the repository or the github user account.
