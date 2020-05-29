@@ -59,7 +59,7 @@ When the user submits the unsubscribe command
 _command_: `@GitHub subscribe list`
 
 Lists the repositories and accounts that that user has subscribed to in the given channel.
-Users are not required to connect their GitHub account on Teams to view the list of subscriptions.
+Users are not required to be signed in to view the list of subscriptions.
 
 ## Flow:
 When the user submits subscribe list command:
