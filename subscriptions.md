@@ -28,6 +28,6 @@ When the user submits subscribe list command:
    * if _ghArtifactType_ is 'Repo': repository id.
    * if _ghArtifactType_is 'Account': user id.
    
-4) If wer are able to retreive the details about the atifact, we further do the authentication as a GitHub app. At this point, we check if our Teams App on GitHub can still access the artifact (to which access has been revoked after a subscription was created in the Teams channel). This will eliminate such repositories from showing up in the list.
+4) If we are able to retreive the details about the atifact, we further do the [authentication as a GitHub app](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app). At this point, we check if our Teams App on GitHub can still access the artifact (this check will tell us if the access to a repository has been revoked after a subscription was created in the Teams channel). This will eliminate such repositories from showing up in the list.
 
 5) Results are displayed as hyperlinks. Text will be the full_name of the repository or the github account name. The hyperlinks will redirect to the repository or the github user account.
