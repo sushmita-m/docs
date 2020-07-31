@@ -1,13 +1,4 @@
 
-Users can customize the different types of notifications from a subscription.
-
-## Supported Features
-_issues, pulls, commits, comments_ are enabled by default.
-_reviews, +label:_ are not supported by default.
-
-## Configuring features:
-* `@github subscribe owner/repo [features]`
-* `@github unsubscribe owner/repo [features]`
 
 1) Users can choose to mention any of the supported features along with the subscribe command.
 2) Multiple features can be subscribed/unsubscribed to at once, they can be either comma separated or space separated.
