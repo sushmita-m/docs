@@ -1,5 +1,3 @@
 afadfadsf
 afdas
 afddf
-
-qewr
