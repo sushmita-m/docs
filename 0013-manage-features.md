@@ -5,7 +5,7 @@ wqrq
 2) If features are not passed with the subscribe command, subscription is created for the features enabled by default.
 3) For any new subscription, if a non-default feature is passed in the command, subscription will be created for the additional features along with features supported by default.
 4) User can unsubscribe to a feature, using the unsubscribe feature command `@github unsubscribe owner/repo [features]
-afadf
+afadf reqewr
 
 ## Filtering with labelxc
 * `@github subscribe owner/repo +label:docs`
