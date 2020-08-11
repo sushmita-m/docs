@@ -7,7 +7,7 @@
 4) User can unsubscribe to a feature, using the unsubscribe feature command `@github unsubscribe owner/repo [features]
 
 
-## Filtering with label
+## Filtering with labelxc
 * `@github subscribe owner/repo +label:docs`
 * `@github unsubscribe owner/repo +label:docs`
 
