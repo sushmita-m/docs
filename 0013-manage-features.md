@@ -19,6 +19,7 @@
 ## Valid Labels
 1) Comma is not supported in a label.
 2) Spaces should be mentioned in quotes _+label:"release docs", +label:'command docs'_
+kjl
 3) Most of the special characters are supported _+label:"release:GA", +label:"branch:release/docs"
 
 
