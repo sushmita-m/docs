@@ -26,7 +26,6 @@
 3) Any feature subscribed/unsubscribed by the user will be alotTed a value of true/false in the JSON.
 4) The value of label is stored in the required_field key with the label value in an array in the JSON.
 456
-789
 
 
 
