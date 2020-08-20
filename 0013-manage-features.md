@@ -4,7 +4,7 @@
 3) For any new subscription, if a non-default feature is passed in the command, subscription will be created for the additional features along with features supported by default.
 4) User can unsubscribe to a feature, using the unsubscribe feature command `@github unsubscribe owner/repo [features]
 
-
+test
 ## Filtering with label
 * `@github subscribe owner/repo +label:docs`
 * `@github unsubscribe owner/repo +label:docs`
@@ -18,15 +18,6 @@
 1) Comma is not supported in a label.
 2) Spaces should be mentioned in quotes _+label:"release docs", +label:'command docs'_
 3) Most of the special characters are supported _+label:"release:GA", +label:"branch:release/docs"
-
-
-## Flow:
-1) The flow is similar to the subscribe flow.
-2) The values of the features are stored as a json in the settings field of the chatopssubscriptions table.
-3) Any feature subscribed/unsubscribed by the user will be alotTed a value of true/false in the JSON.
-4) The value of label is stored in the required_field key with the label value in an array in the JSON.
-456
-789
 
 
 
