@@ -14,7 +14,7 @@
 3) Label can be updated by running the subscribe command with the new label.
 4) The value passed for the label is case sensitive, the case of the label should exactly match the one set in GitHub
 
-## Valid Labels
+## Valid Label
 1) Comma is not supported in a label.
 2) Spaces should be mentioned in quotes _+label:"release docs", +label:'command docs'_
 3) Most of the special characters are supported _+label:"release:GA", +label:"branch:release/docs"
