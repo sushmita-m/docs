@@ -1,4 +1,4 @@
-print("Hello world!")
+print("Hello wosrld!")
 name = input("Please enter your full name:")
 ary = name.split()
 fn = ary[0]
