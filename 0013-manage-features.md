@@ -19,7 +19,6 @@
 2) Spaces should be mentioned in quotes _+label:"release docs", +label:'command docs'_
 3) Most of the special characters are supported _+label:"release:GA", +label:"branch:release/docs"
 
-
 ## Flow:
 1) The flow is similar to the subscribe flow.
 2) The values of the features are stored as a json in the settings field of the chatopssubscriptions table.
