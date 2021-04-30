@@ -1,4 +1,4 @@
-1) Users can choose to mention any of the supported features along with the subscribe command.
+1) Users can choose to mention any of the supported features along with the subscribe command..
 2) Multiple features can be subscribed/unsubscribed to, they can be either comma separated or space separated.
 2) If features are not passed with the subscribe command, subscription is created for the features enabled by default.
 3) For any new subscription, if a non-default feature is passed in the command, subscription will be created for the additional features along with features supported by default.
