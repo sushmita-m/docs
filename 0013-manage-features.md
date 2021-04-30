@@ -1,4 +1,4 @@
-1) Users can choose to mention any of the supported features along with the subscribe command.
+1) Users can choose to mention any of the supported features along with the subscribe command...
 2) Multiple features can be subscribed/unsubscribed to, they can be either comma separated or space separated.
 2) If features are not passed with the subscribe command, subscription is created for the features enabled by default.
 3) For any new subscription, if a non-default feature is passed in the command, subscription will be created for the additional features along with features supported by default.
@@ -16,7 +16,7 @@ kjl
 5) afasf
 6) adfasf
 
-## Valid Labels
+## Valid Label
 1) Comma is not supported in a label.
 2) Spaces should be mentioned in quotes _+label:"release docs", +label:'command docs'_
 3) Most of the special characters are supported _+label:"release:GA", +label:"branch:release/docs"
