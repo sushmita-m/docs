@@ -13,6 +13,8 @@ kjl
 2) User can only subscribe to one label for a subscription.
 3) Label can be updated by running the subscribe command with the new label.
 4) The value passed for the label is case sensitive, the case of the label should exactly match the one set in GitHub
+5) afasf
+6) adfasf
 
 ## Valid Label
 1) Comma is not supported in a label.
@@ -26,5 +28,11 @@ kjl
 4) The value of label is stored in the required_field key with the label value in an array in the JSON.
 456
 789
+0009
+9023
+fasdfa
+afdaf
+adfaf
+testat
 
 
