@@ -12,7 +12,8 @@
 1) If a label is subscribed to, **issues, reviews and comments** will be filtered based on the label.
 2) User can only subscribe to one label for a subscription.
 3) Label can be updated by running the subscribe command with the new label.
-4) The value passed for the label is case sensitive, the case of the label should exactly match the one set in GitHub
+4) afaffarewrw
+5) The value passed for the label is case sensitive, the case of the label should exactly match the one set in GitHub
 
 ## Valid Labels
 1) Comma is not supported in a label.
