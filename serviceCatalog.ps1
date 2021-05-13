@@ -53,7 +53,7 @@ Foreach ($service in $services)
         {
             if($iscorecardSummariesNodes.score -lt $iscorecardSummariesNodes.maxScore)
             {
-                $iscorecardSummariesNodes | Add-Member -NotePropertyName Status -NotePropertyValue "https://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
+                $iscorecardSummariesNodes | Add-Member -NotePropertyName Status -NotePropertyValue "http://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
             }
             else
             {
