@@ -15,6 +15,7 @@ kjl
 4) The value passed for the label is case sensitive, the case of the label should exactly match the one set in GitHub
 5) afasf
 6) adfasf
+7) adsfasdf
 
 ## Valid Label
 1) Comma is not supported in a label.
