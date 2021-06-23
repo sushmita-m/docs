@@ -35,6 +35,7 @@ jobs:
       uses: tj-actions/verify-changed-files@v7
       with:
         files: |
-          .(yml|jpeg)$
+          "**.yml**"
+          '**.yml**'
           .(yml)$
           
