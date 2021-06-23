@@ -30,6 +30,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo ${{ github.event_name }}
-        echo ${{ github.push.paths }}
+        echo ${{ on.push.paths }}
         echo Add other actions to build,
         echo test, and deploy your project.
