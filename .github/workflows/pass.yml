@@ -35,6 +35,6 @@ jobs:
       uses: tj-actions/verify-changed-files@v7
       with:
         files: |
-          (.js)$
+          (.yml)$
           (.ts)$
           
