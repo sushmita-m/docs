@@ -31,11 +31,6 @@ jobs:
         echo ${{ github }}
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: teset
-      uses: tj-actions/verify-changed-files@v7
-      with:
-        files: |
-          "**.yml**"
-          '**.yml**'
-          .(yml)$
+        echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
+
           
